@@ -1,0 +1,22 @@
+{
+    "elements":
+    [
+        { "type": "ValidationTextBox", "name": "DeviceID", "caption": "DeviceID" },
+        { "type": "ValidationTextBox", "name": "Host", "caption": "IP" },
+		{ "type": "ValidationTextBox", "name": "NetworkInterface", "caption": "Network Interface" },
+        { "type": "ValidationTextBox", "name": "Name", "caption": "Name" },
+		{ "type": "ValidationTextBox", "name": "GroupID", "caption": "Group ID" },
+		{ "type": "ValidationTextBox", "name": "Coordinator", "caption": "Coordinator" }
+    ],
+	"actions":
+	[
+		{ "type": "Button", "label": "subscribe to Device", "onClick": "MUC_subscribeDevice($id);" },
+		{ "type": "Button", "label": "rescan Speaker in Network", "onClick": "MUC_updateSpeakerIP($id);" }
+	],
+	"status":
+    [
+		{ "code": 102, "icon": "active", "caption": "Speaker online" },
+        { "code": 104, "icon": "inactive", "caption": "Speaker offline, try to rescan" },
+        { "code": 201, "icon": "error", "caption": "Modul error" }
+    ]
+}

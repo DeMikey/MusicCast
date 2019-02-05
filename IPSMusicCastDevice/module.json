@@ -1,0 +1,13 @@
+{
+  "id": "{332C2875-7503-4054-95BE-250081AF03DF}",
+  "name": "IPSMusicCastDevice",
+  "type": 3,
+  "vendor": "Yamaha",
+  "aliases": [
+    "MusicCast"
+  ],
+	"parentRequirements": ["{79827379-F36E-4ADA-8A95-5F8D1DC92FA9}"],
+	"childRequirements": [],
+	"implemented": ["{018EF6B5-AB94-40C6-AA53-46943E824ACF}"],
+  "prefix": "MUC"
+}

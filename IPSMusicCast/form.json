@@ -1,0 +1,16 @@
+{
+    "elements":
+    [
+		{ "type": "Label", "caption": "Press (Get Devices) to scan for Speakers in current network" },
+		{ "type": "ValidationTextBox", "name": "NetworkInterface", "caption": "Network Interface" }
+    ],
+	"actions":
+	[
+		{ "type": "Button", "label": "Get Devices", "onClick": "MUC_GetMCSpeakers($id);" },
+	],
+		"status":
+    [
+		{ "code": 102, "icon": "active", "caption": "Speaker(s) exists" },
+        { "code": 104, "icon": "inactive", "caption": "No Speaker found" },
+    ]
+}
