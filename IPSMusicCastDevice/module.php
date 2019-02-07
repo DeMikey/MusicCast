@@ -199,7 +199,8 @@ public function updateSpeakerIP()
 		$tempPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "musiccast";
 		@$this->delete_files($tempPath);
 		//Compare IPs
-		$CurrentIP = $this->getSpeakerIPbyName($this->ReadPropertyString('Name'));
+//		$CurrentIP = $this->getSpeakerIPbyName($this->ReadPropertyString('Name'));
+		$CurrentIP = $this->getSpeakerByIp($this->ReadPropertyString('Host'));
 		if($CurrentIP != $this->ReadPropertyString('Host'))
 			{
 				IPS_LogMessage("MUC " . $this->ReadPropertyString('Name'), "Device IP updated");
@@ -210,6 +211,7 @@ public function updateSpeakerIP()
 			}
 		$this->SetStatus(102);
 }
+
 //Get Data from UDP Socket
 public function ReceiveData($JSONString)
 {
@@ -552,6 +554,27 @@ protected function getSpeakerIPbyName($SpeakerName)
 		$MUCNetworkObj = $this->getMusicCastNetworkObj();
 		try {
 				$speaker = $MUCNetworkObj->getSpeakerByName($SpeakerName);
+				if (isset($speaker)) {
+					$DeviceObj = $this->getObjProp($speaker,"device");
+					$DeviceIP = $this->getObjProp($DeviceObj,"ip");
+					return $DeviceIP;
+					}
+				else {
+					throw new Exception('No Device found.');
+					}
+			}
+		catch (Exception $e) {
+				$this->SetStatus(104);
+				echo 'Error: ',  $e->getMessage(), "\n";
+				exit(1);
+		}
+}
+
+protected function getSpeakerByIp($IP)
+{
+		$MUCNetworkObj = $this->getMusicCastNetworkObj();
+		try {
+				$speaker = $MUCNetworkObj->getSpeakerByIp($IP);
 				if (isset($speaker)) {
 					$DeviceObj = $this->getObjProp($speaker,"device");
 					$DeviceIP = $this->getObjProp($DeviceObj,"ip");

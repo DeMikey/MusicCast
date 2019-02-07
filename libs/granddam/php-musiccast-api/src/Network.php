@@ -343,10 +343,24 @@ class Network implements LoggerAwareInterface
      */
     public function getSpeakerByIp($ip)
     {
-        $speakers = $this->getSpeakers();
+		$device = new Device($ip, 80);
+        $this->logger->debug("Getting devices info from: {$ip}");
+        $treeInfo = $device->getMusicCastTreeInfo();
+        $this->speakers = [];
+        foreach ($treeInfo['mac_address_list'] as $addr) {
+            $ip = $addr['ip_address'];
+            $speaker = new Speaker(new Device($ip, 80));
+            $this->speakers[$ip] = $speaker;
+        }
+        return $this->speakers;
+
+
+ /*
+		$speakers = $this->getSpeakers();
         if (!array_key_exists($ip, $speakers)) {
             throw new \InvalidArgumentException("No speaker found for the IP address '{$ip}'");
         }
         return $speakers[$ip];
+*/
     }
 }
