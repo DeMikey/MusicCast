@@ -392,9 +392,11 @@ public function RequestAction($Ident, $Value) {
 			case "Mute":
 				if($Value == true)
 				{
-					$result = $MUCControllerObj->mute();
+					//$result = $MUCControllerObj->mute();
+					$result = $MUCSpeakerObj->mute();
 				}else{
-					$result = $MUCControllerObj->unmute();
+					//$result = $MUCControllerObj->unmute();
+					$result = $MUCSpeakerObj->unmute();
 				}
 				break;
 			case "Power":
