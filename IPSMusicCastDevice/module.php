@@ -400,10 +400,12 @@ public function RequestAction($Ident, $Value) {
 			case "Power":
 				if($Value == false)
 				{
-					$result = $MUCControllerObj->standBy();
+					//$result = $MUCControllerObj->standBy();
+					$result = $MUCSpeakerObj->standBy();
 					//$this->setHiddenDeviceVariable($this->GetIDForIdent($Ident),true);
 				}else{
-					$result = $MUCControllerObj->powerOn();
+					$result = $MUCSpeakerObj->powerOn();
+					//$result = $MUCControllerObj->powerOn();
 					$this->subscribeDevice();
 					//$this->signalInfoUpdated();
 					//$this->setHiddenDeviceVariable($this->GetIDForIdent($Ident),false);
