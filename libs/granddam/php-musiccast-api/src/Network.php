@@ -352,7 +352,7 @@ class Network implements LoggerAwareInterface
             $speaker = new Speaker(new Device($ip, 80));
             $this->speakers[$ip] = $speaker;
         }
-        return $this->speakers;
+        return $this->speakers[$ip];
 
 
  /*

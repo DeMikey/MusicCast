@@ -199,8 +199,8 @@ public function updateSpeakerIP()
 		$tempPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . "musiccast";
 		@$this->delete_files($tempPath);
 		//Compare IPs
-		$CurrentIP = $this->getSpeakerIPbyName($this->ReadPropertyString('Name'));
-//		$CurrentIP = $this->getSpeakerByIp($this->ReadPropertyString('Host'));
+//		$CurrentIP = $this->getSpeakerIPbyName($this->ReadPropertyString('Name'));
+		$CurrentIP = $this->getSpeakerByIp($this->ReadPropertyString('Host'));
 		if($CurrentIP != $this->ReadPropertyString('Host'))
 			{
 				IPS_LogMessage("MUC " . $this->ReadPropertyString('Name'), "Device IP updated");
