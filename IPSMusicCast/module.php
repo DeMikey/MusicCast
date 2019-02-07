@@ -100,7 +100,9 @@ class IPSMusicCast extends IPSModule
 				exit(1);
 			}
 			$this->SetStatus(102);
+
 			$MUCNetworkArray = $this->getObjProp($MUCNetworkObj,"speakers");
+			//$SpeakerIPs[];
 			$SpeakerIPs = array_keys($MUCNetworkArray);
 			
 			//Liest bestehende MusicCast Geräte aus ips aus
@@ -162,10 +164,10 @@ class IPSMusicCast extends IPSModule
 			unlink( $target );  
 		}
 	}
-//function extract protected properties
-protected function getObjProp($obj, $val){
-	$propGetter = Closure::bind( function($prop){return $this->$prop;}, $obj, $obj );
-	return $propGetter($val);
-}
+	//function extract protected properties
+	protected function getObjProp($obj, $val){
+		$propGetter = Closure::bind( function($prop){return $this->$prop;}, $obj, $obj );
+		return $propGetter($val);
+	}
 }
 ?>
