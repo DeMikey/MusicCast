@@ -70,7 +70,7 @@ class IPSMusicCast extends IPSModule
 			$UDPSocket = $this->GetParentId(); //UDP Socket ID finden
 			//Properties für das UDP Socket einstellen
 			IPS_SetProperty($UDPSocket, "BindPort", 41100);
-			IPS_SetProperty($UDPSocket, "Host", "192.168.1.160");
+			IPS_SetProperty($UDPSocket, "Host", "192.168.133.10");
 			IPS_SetProperty($UDPSocket, "Port", 41100);
 			IPS_SetProperty($UDPSocket, "Open", true);
 			IPS_ApplyChanges($UDPSocket);
