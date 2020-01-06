@@ -91,8 +91,8 @@ class IPSMusicCast extends IPSModule
 			$MUCNetworkObj->setNetworkInterface($this->ReadPropertyInteger('NetworkInterface'));
 	
 			try {
-	//			$MUCNetworkObj->getSpeakers();
-				$MUCNetworkObj->getSpeakerByIp('192.168.128.139');
+				$MUCNetworkObj->getSpeakers();
+	//			$MUCNetworkObj->getSpeakerByIp('192.168.128.139');
 			}
 			catch (Exception $e) {
 				echo 'Error: ',  $e->getMessage(), "\n";
